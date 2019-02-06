@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Write a description of class DiscoDuro here.
@@ -64,7 +65,7 @@ public class DiscoDuro
         }
         return sistemasAMostrar;
     }
-    
+
     /** El método clasifica aquellos sistemas en función de su parche de seguridad 
      * mas reciente y si son estables.
      */
@@ -95,8 +96,28 @@ public class DiscoDuro
         }
         return sistemasAMostrar;
     }
-    
+
+    /**
+     * Este método permite cambiar la estabilidad de cualquier sistema ya sea
+     * de false a true y a la inversa. El valor que introduce el usuario es 
+     * el numero identificativo
+     */
     public void cambiarEstabilidad(int numeroIdentificativo, boolean estabilidad) {
         sistemas.get(numeroIdentificativo - 1).setEsEstable(estabilidad);
+    }
+
+    /**
+     * Este método no retorna nada, simplemente elimina aquellos sistemas
+     * cuyo atributo estable sea false.
+     */
+    public void borrarLosNoEstables() {
+        Iterator<SistemaOperativo> it = sistemas.iterator();
+        while (it.hasNext()) {
+            SistemaOperativo sistemaActual = null;
+            sistemaActual = it.next();
+            if (!sistemaActual.getEsEstable()) {
+                it.remove();
+            }
+        }
     }
 }
