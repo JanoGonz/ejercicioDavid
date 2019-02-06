@@ -65,7 +65,12 @@ public class SistemaOperativo
     
     public String todasLasCaracteristicas() {
         String caracteristicas = "";
-        caracteristicas = caracteristicas + numeroIdentificativo + ". " + nombre + " " + version + " " + parcheDeSeguridad + " " + estable;
+        if (estable) {
+            caracteristicas = caracteristicas + numeroIdentificativo + ". " + nombre + " " + version + " con parche de seguridad de " + parcheDeSeguridad + " " + "es estable" + "\n";
+        }
+        else {
+            caracteristicas = caracteristicas + numeroIdentificativo + ". " + nombre + " " + version + " con parche de seguridad de " + parcheDeSeguridad + " " + "no es estable" + "\n";
+        }
         return caracteristicas;
     }
 }  

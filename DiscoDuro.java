@@ -24,4 +24,14 @@ public class DiscoDuro
         sistemas.add(sistemaActual);
         numeroIdentificativo++;
     }
+    
+    public String mostrarSistemas() {
+        int contador = 0;
+        String sistemasAMostrar = "";
+        while (contador != sistemas.size()) {
+            sistemasAMostrar += sistemas.get(contador).todasLasCaracteristicas();
+            contador++;
+        }
+        return sistemasAMostrar;
+    }
 }
