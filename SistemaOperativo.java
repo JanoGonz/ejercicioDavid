@@ -13,6 +13,7 @@ public class SistemaOperativo
     private int version;
     private LocalDate parcheDeSeguridad;
     private boolean estable;
+    private int numeroIdentificativo;
 
     /**
      * Constructor for objects of class SistemaOperativo
@@ -23,6 +24,7 @@ public class SistemaOperativo
         this.version = version;
         this.parcheDeSeguridad = parcheDeSeguridad.of(year, month, day);
         this.estable = estable;
+        this.numeroIdentificativo = numeroIdentificativo;
     }
 
     public String getNombre () {
@@ -41,6 +43,10 @@ public class SistemaOperativo
         return this.estable;
     }
     
+    public int getNumeroIdentificativo() {
+        return this.numeroIdentificativo;
+    }
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -56,4 +62,4 @@ public class SistemaOperativo
     public void setEsEstable(boolean estable) {
         this.estable = estable;
     }
-}   
+}  
