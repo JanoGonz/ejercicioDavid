@@ -120,4 +120,42 @@ public class DiscoDuro
             }
         }
     }
+    
+    /**
+     * Es necesario que el usuario introduzca el nombre de los sistemas a 
+     * clasificar (Windows, Ubuntu, Mac...).
+     */
+    public String ordenarPorVersionYParcheDeSeguridadSiHayEmpate(String sistema) {
+        String sistemasAMostrar= "";
+        ArrayList<SistemaOperativo> sistemasBackup = new ArrayList();
+        int contador = 0;
+        for (SistemaOperativo sistemaActual : sistemas) {
+            if (sistemaActual.getNombre().equals(sistema)) {
+                sistemasBackup.add(sistemaActual);
+            }
+        }
+        while (contador < sistemasBackup.size()) {
+            int contador2 = contador + 1;
+            while (contador2 < sistemasBackup.size()) {
+                if (sistemasBackup.get(contador).getVersion() > sistemasBackup.get(contador2).getVersion()) {
+                    SistemaOperativo sistemaBackupTemp = null;
+                    sistemaBackupTemp = sistemasBackup.get(contador);
+                    sistemasBackup.set(contador, sistemasBackup.get(contador2));
+                    sistemasBackup.set(contador2, sistemaBackupTemp);
+                }
+                else if (sistemasBackup.get(contador).getVersion() == sistemasBackup.get(contador2).getVersion() && sistemasBackup.get(contador).getFechaParcheDeSeguridad().isAfter(sistemasBackup.get(contador2).getFechaParcheDeSeguridad())){
+                    SistemaOperativo sistemaBackupTemp = null;
+                    sistemaBackupTemp = sistemasBackup.get(contador);
+                    sistemasBackup.set(contador, sistemasBackup.get(contador2));
+                    sistemasBackup.set(contador2, sistemaBackupTemp);
+                }
+                contador2++;
+            }
+            contador++;
+        }
+        for (SistemaOperativo sistemaActual : sistemasBackup) {
+            sistemasAMostrar += sistemaActual.getNombre() + " " + sistemaActual.getVersion() + " " + sistemaActual.getFechaParcheDeSeguridad() + "\n";
+        }
+        return sistemasAMostrar;
+    }
 }
