@@ -62,4 +62,10 @@ public class SistemaOperativo
     public void setEsEstable(boolean estable) {
         this.estable = estable;
     }
+    
+    public String todasLasCaracteristicas() {
+        String caracteristicas = "";
+        caracteristicas = caracteristicas + numeroIdentificativo + ". " + nombre + " " + version + " " + parcheDeSeguridad + " " + estable;
+        return caracteristicas;
+    }
 }  
