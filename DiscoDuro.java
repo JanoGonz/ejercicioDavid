@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class DiscoDuro here.
@@ -7,14 +8,20 @@
  */
 public class DiscoDuro
 {
-    // instance variables - replace the example below with your own
-    
+    private ArrayList<SistemaOperativo> sistemas;
+    private int numeroIdentificativo = 1;
 
     /**
      * Constructor for objects of class DiscoDuro
      */
     public DiscoDuro()
     {
-        
+        sistemas = new ArrayList<SistemaOperativo>();
+    }
+    
+    public void agregarSistema(String nombre, double version, int day, int month, int year, boolean estable) {
+        SistemaOperativo sistemaActual = new SistemaOperativo(nombre, version, day, month, year, estable, numeroIdentificativo);
+        sistemas.add(sistemaActual);
+        numeroIdentificativo++;
     }
 }

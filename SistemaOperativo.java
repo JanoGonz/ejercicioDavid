@@ -10,7 +10,7 @@ public class SistemaOperativo
 {
     // instance variables - replace the example below with your own
     private String nombre;
-    private int version;
+    private double version;
     private LocalDate parcheDeSeguridad;
     private boolean estable;
     private int numeroIdentificativo;
@@ -18,7 +18,7 @@ public class SistemaOperativo
     /**
      * Constructor for objects of class SistemaOperativo
      */
-    public SistemaOperativo(String nombre, int version, int day, int month, int year, boolean estable, int numeroIdentificativo)
+    public SistemaOperativo(String nombre, double version, int day, int month, int year, boolean estable, int numeroIdentificativo)
     {
         this.nombre = nombre;
         this.version = version;
@@ -31,7 +31,7 @@ public class SistemaOperativo
         return this.nombre;
     }
     
-    public int getVersion() {
+    public double getVersion() {
         return this.version;
     }
     
