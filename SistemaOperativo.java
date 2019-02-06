@@ -25,5 +25,35 @@ public class SistemaOperativo
         this.estable = estable;
     }
 
- 
-}
+    public String getNombre () {
+        return this.nombre;
+    }
+    
+    public int getVersion() {
+        return this.version;
+    }
+    
+    public LocalDate getFechaParcheDeSeguridad() {
+        return this.parcheDeSeguridad;
+    }
+    
+    public boolean getEsEstable() {
+        return this.estable;
+    }
+    
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    public void setVersion(int version) {
+        this.version = version;
+    }
+    
+    public void setFechaDeParcheDeSeguridad(int day, int month, int year) {
+        this.parcheDeSeguridad = parcheDeSeguridad.of(year, month, day);
+    }
+    
+    public void setEsEstable(boolean estable) {
+        this.estable = estable;
+    }
+}   
