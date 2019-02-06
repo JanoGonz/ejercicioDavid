@@ -60,8 +60,41 @@ public class DiscoDuro
             contador++;
         }
         for (SistemaOperativo sistemaActual : sistemasBackup) {
-            sistemasAMostrar += sistemaActual.getNombre() + sistemaActual.getVersion();
+            sistemasAMostrar += sistemaActual.getNombre() + sistemaActual.getVersion() + "\n";
         }
         return sistemasAMostrar;
     }
+    
+    /** El método clasifica aquellos sistemas en función de su parche de seguridad 
+     * mas reciente y si son estables.
+     */
+    public String clasificacionParcheDeSeguridadYEstables() {
+        String sistemasAMostrar = "";
+        ArrayList<SistemaOperativo> sistemasBackup = new ArrayList<SistemaOperativo>();
+        int contador = 0;
+        for (SistemaOperativo sistemaActual : sistemas) {
+            if (sistemaActual.getEsEstable()) {
+                sistemasBackup.add(sistemaActual);
+            }
+        }
+        while (contador < sistemasBackup.size()) {
+            int contador2 = contador + 1;
+            while (contador2 < sistemasBackup.size()) {
+                if (sistemasBackup.get(contador).getFechaParcheDeSeguridad().isAfter(sistemasBackup.get(contador2).getFechaParcheDeSeguridad())) {
+                    SistemaOperativo sistemaBackupTemp = null;
+                    sistemaBackupTemp = sistemasBackup.get(contador);
+                    sistemasBackup.set(contador, sistemasBackup.get(contador2));
+                    sistemasBackup.set(contador2, sistemaBackupTemp);
+                }
+                contador2++;
+            }
+            contador++;
+        }
+        for (SistemaOperativo sistemaActual : sistemasBackup) {
+            sistemasAMostrar += sistemaActual.getNombre() + " " + sistemaActual.getVersion() + " " + sistemaActual.getFechaParcheDeSeguridad() + "\n";
+        }
+        return sistemasAMostrar;
+    }
+    
+    
 }
