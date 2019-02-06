@@ -96,5 +96,7 @@ public class DiscoDuro
         return sistemasAMostrar;
     }
     
-    
+    public void cambiarEstabilidad(int numeroIdentificativo, boolean estabilidad) {
+        sistemas.get(numeroIdentificativo - 1).setEsEstable(estabilidad);
+    }
 }
