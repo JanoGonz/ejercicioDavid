@@ -20,12 +20,19 @@ public class DiscoDuro
         sistemas = new ArrayList<SistemaOperativo>();
     }
 
+    /**
+     * Este método permite agregar nuevos sistemas; en el que es necesario
+     * introducir los datos que se soliciten.
+     */
     public void agregarSistema(String nombre, double version, int day, int month, int year, boolean estable) {
         SistemaOperativo sistemaActual = new SistemaOperativo(nombre, version, day, month, year, estable, numeroIdentificativo);
         sistemas.add(sistemaActual);
         numeroIdentificativo++;
     }
 
+    /**
+     * Este método muestra los sistemas con toda la información.
+     */
     public String mostrarSistemas() {
         int contador = 0;
         String sistemasAMostrar = "";
