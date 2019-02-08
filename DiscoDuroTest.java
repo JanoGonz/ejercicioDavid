@@ -114,11 +114,11 @@ public class DiscoDuroTest
     public void ordenarPorUnaCondicionCommit11()
     {
         DiscoDuro discoDur1 = new DiscoDuro();
-        discoDur1.agregarSistema("Windows", 10, 7, 2, 2019, true);
+        discoDur1.agregarSistema("Windows", 10, 7, 2, 2020, true);
         discoDur1.agregarSistema("Windows", 7, 31, 12, 2018, true);
-        discoDur1.agregarSistema("Windows", 8.1, 1, 1, 2019, true);
-        discoDur1.agregarSistema("Ubuntu", 18.04, 6, 2, 2019, true);
-        assertEquals("Windows 7.0 2018-12-31\nWindows 8.1 2019-01-01\nWindows 10.0 2019-02-07\n", discoDur1.ordenarPorVersionYParcheDeSeguridadSiHayEmpate("Windows"));
+        discoDur1.agregarSistema("Windows", 8.1, 1, 1, 2020, true);
+        discoDur1.agregarSistema("Ubuntu", 18.04, 6, 2, 2020, true);
+        assertEquals("Windows 7.0 2018-12-31\nWindows 8.1 2020-01-01\nWindows 10.0 2020-02-07\n", discoDur1.ordenarPorVersionYParcheDeSeguridadSiHayEmpate("Windows"));
     }
 }
 
