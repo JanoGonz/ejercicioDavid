@@ -104,13 +104,21 @@ public class DiscoDuro
         return sistemasAMostrar;
     }
 
-    /**
+    /**NECESITA UNA VERSIÓN MEJOR
      * Este método permite cambiar la estabilidad de cualquier sistema ya sea
      * de false a true y a la inversa. El valor que introduce el usuario es 
      * el numero identificativo
      */
     public void cambiarEstabilidad(int numeroIdentificativo, boolean estabilidad) {
-        sistemas.get(numeroIdentificativo - 1).setEsEstable(estabilidad);
+        int contador = 0;
+        boolean buscando = true;
+        while (contador < sistemas.size() && buscando) {
+            if (sistemas.get(contador).getId() == numeroIdentificativo) {
+                sistemas.get(contador).setEsEstable(estabilidad);
+                buscando = false;
+            }
+            contador++;
+        }
     }
 
     /**
@@ -127,7 +135,7 @@ public class DiscoDuro
             }
         }
     }
-    
+
     /**
      * Es necesario que el usuario introduzca el nombre de los sistemas a 
      * clasificar (Windows, Ubuntu, Mac...).
@@ -165,4 +173,5 @@ public class DiscoDuro
         }
         return sistemasAMostrar;
     }
+
 }
