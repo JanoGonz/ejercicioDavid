@@ -43,6 +43,10 @@ public class SistemaOperativo
         return this.estable;
     }
     
+    public int getId() {
+        return this.numeroIdentificativo;
+    }
+    
     public int getNumeroIdentificativo() {
         return this.numeroIdentificativo;
     }
