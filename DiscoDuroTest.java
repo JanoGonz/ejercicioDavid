@@ -1,5 +1,4 @@
 
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
@@ -67,9 +66,12 @@ public class DiscoDuroTest
         discoDur1.agregarSistema("Windows", 10, 1, 1, 2000, true);
         discoDur1.agregarSistema("Windows", 7, 1, 1, 2000, true);
         discoDur1.agregarSistema("Windows", 8.1, 1, 1, 2000, true);
-        discoDur1.agregarSistema("Ubuntu", 18.06, 1, 1, 2000, true);
-        assertEquals("Windows7.0\nWindows8.1\nWindows10.0\n", discoDur1.clasificacionPorVersion("Windows"));
-        assertEquals("Ubuntu18.06\n", discoDur1.clasificacionPorVersion("Ubuntu"));
+        discoDur1.agregarSistema("Windows", 18.06, 1, 1, 2000, true);
+        discoDur1.agregarSistema("Windows", 5, 1, 1, 2000, true);
+        discoDur1.agregarSistema("Windows", 6.01, 1, 1, 2000, true);
+        discoDur1.agregarSistema("Windows", 11.1, 1, 1, 2000, true);
+        discoDur1.agregarSistema("Windows", 3, 1, 1, 2000, true);
+        assertEquals("Windows3.0\nWindows5.0\nWindows6.01\nWindows7.0\nWindows8.1\nWindows10.0\nWindows11.1\nWindows18.06\n", discoDur1.clasificacionPorVersion("Windows"));
     }
 
     @Test
